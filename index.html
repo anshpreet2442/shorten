@@ -1,1 +1,38 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom URL Redirection</title>
+    <script>
+        // Function to handle redirection based on fragments
+        function redirectBasedOnFragment() {
+            // Get the fragment from the URL
+            var fragment = window.location.hash.substr(1);
+
+            // Define redirection mappings
+            var redirections = {
+                'ansh': 'https://globfone.com/thank-you/',
+                'mahip': 'https://pixeldrain.com/'
+                // Add more mappings as needed
+            };
+
+            // Check if the fragment has a corresponding redirection
+            if (redirections.hasOwnProperty(fragment)) {
+                // Redirect to the specified URL
+                window.location.href = redirections[fragment];
+            } else {
+                // Handle the case when no matching redirection is found
+                console.log("No redirection found for the given fragment.");
+            }
+        }
+
+        // Call the redirection function on page load
+        window.onload = redirectBasedOnFragment;
+    </script>
+</head>
+<body>
+    <h1>Custom URL Redirection</h1>
+    <!-- Your page content goes here -->
+</body>
+</html>
